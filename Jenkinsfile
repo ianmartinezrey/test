@@ -1,12 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('approval') {
-      steps {
-        input 'Por favor aprueba '
-      }
-    }
-
     stage('test') {
       steps {
         echo 'Se ejecutaron las pruebas'
@@ -16,6 +10,12 @@ pipeline {
     stage('deploy') {
       steps {
         echo 'Creación del artefacto'
+      }
+    }
+
+    stage('approval') {
+      steps {
+        input(message: 'Por favor aprobar', id: '1', ok: '2')
       }
     }
 
