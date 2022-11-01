@@ -9,7 +9,7 @@ pipeline {
 
     stage('approval') {
       steps {
-        input 'Por favor aprueba '
+        input(message: 'Por favor aprueba ', id: '1', ok: '2')
       }
     }
 
